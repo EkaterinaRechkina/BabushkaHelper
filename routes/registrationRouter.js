@@ -1,9 +1,13 @@
 const { Router } = require("express");
-const { User } = require("../db/models");
+const { User, Granny } = require("../db/models");
 const { checkIsSession, checkIsNotSession } = require('../middlewares/index.middlewares')
 
 const router = Router();
 
+
+router.get('/registration', (req, res) => {
+  res.render('users/registration');
+})
 
 
 router.post('/registration',   async (req, res) => {
@@ -13,17 +17,17 @@ console.log(req.body)//достает
 try {
   if(status === "gran") {
 
-    const checkUser = await Granny.findOne({where: {granny_name}})// проверяем в БД наличие повторений  пользователя
+    const checkUser = await Granny.findOne({where: {granny_name: username}})// проверяем в БД наличие повторений  пользователя
     if(!checkUser){
   
-      const newUser = await User.create({//создаем нового юзера
-          username, email, password: hashedPassword //!вместо пароля передаем наш захэшированный пароль
+      const newUser = await Granny.create({//создаем нового юзера
+        granny_name: username, password //! надо  ли при рег-ии данные внучек???
         })
         //* вот тут вот создается сессия
-          req.session.userName = newUser.username // добавляем в сессию айди нового юзера
-          // console.log(reg.session);
-          req.session.userEmail = newUser.email;
-          req.session.userId = newUser.id;
+          // req.session.username = newUser.username // добавляем в сессию айди нового юзера 
+          //! куков нет!!!
+          // // console.log(reg.session);
+          // req.session.userId = newUser.id;
         
           res.redirect('/')
     } else { return res.render('error', {
@@ -37,6 +41,7 @@ try {
 }
   res.render('users/registration');
 })
+
 
 
 
