@@ -1,0 +1,30 @@
+{{!-- Библиотека считывания текста --}}
+<script defer src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
+<script defer src="/js/granny.js"></script>
+ <h1>Бабушкин помощник 	&#127848;</h1>
+ <br>
+<select name="langs" id="langs">
+    <option value="rus" selected>Русский</option>
+    <option value="eng">English</option>
+</select>
+
+<input type="file" id="file"/>
+
+<div id="log" style="min-height: 200px; border: 1px solid #eee">
+    <pre class="pre"></pre>
+</div>
+<br>
+<button type="button" id="start">Прочесть текст с картинки</button>
+<br>
+<br>
+
+<br>
+<br>
+<button id="activate">Начать</button>
+<div class="main">
+    
+ <p>Выберите язык произношения<select id="lang">
+    </select>
+    <button type="button"  onclick="speak();">Озвучить</button>
+</div>
+
