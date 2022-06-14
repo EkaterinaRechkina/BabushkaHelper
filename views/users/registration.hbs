@@ -1,0 +1,19 @@
+<form name="form" action="/registration" method="POST">
+  <div class="mb-3">
+    <label for="text" class="form-label">User name</label>
+    <input type="text" class="form-control" id="username" name="username" style="color:black">
+  </div>  
+  <div class="mb-3">
+    <p>укажите пожалуйста Ваш статус на сайте</p>
+    <label for="status" class="form-label">Статус</label>
+    <select name="status" id="status">
+     <option value="gran">Бабуля</option>
+     <option value="child">Внук/Внучка</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="pass" class="form-label">Password</label>
+    <input type="password" class="form-control" name="password" id="password" style="color:black">
+  </div>
+  <button type="submit" class="btn btn-primary" style="color:black" >Submit</button>
+</form>
