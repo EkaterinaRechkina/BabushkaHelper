@@ -1,13 +1,14 @@
-<form action="/registration" method="POST">
+<form name="form" action="/registration" method="POST">
   <div class="mb-3">
     <label for="text" class="form-label">User name</label>
     <input type="text" class="form-control" id="username" name="username" style="color:black">
   </div>  
   <div class="mb-3">
     <p>укажите пожалуйста Ваш статус на сайте</p>
-    <select>
-     <option>Бабуля</option>
-     <option>Внук/Внучка</option>
+    <label for="status" class="form-label">Статус</label>
+    <select name="status" id="status">
+     <option value="gran">Бабуля</option>
+     <option value="child">Внук/Внучка</option>
     </select>
   </div>
   <div class="mb-3">

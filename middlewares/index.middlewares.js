@@ -13,3 +13,5 @@ const checkIsNotSession = (req, res, next) => {
     next()
   }
 }
+
+module.exports = { checkIsSession, checkIsNotSession }
