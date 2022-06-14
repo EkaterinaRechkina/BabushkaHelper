@@ -1,15 +1,36 @@
-/* body {
+body {
+  font-family: 'Roboto', sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: rgb(246, 193, 151);
+  background: url(../img/background.jpg);
 }
-//Footer внизу страницы
+/* Footer внизу страницы */
 main {
   flex-grow: 1;
-} */
+}
 
 /* test */
-.main{
+.main {
   display: none;
+}
+
+.image {
+  width: 700px;
+}
+.container {
+  max-width: 900px;
+}
+
+.instructions {
+  display: none;
+  padding: 30px;
+}
+.title:hover {
+  cursor: pointer;
+}
+
+.log{
+  background-color: white;
+  opacity: 0.8;
 }
