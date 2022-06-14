@@ -6,7 +6,7 @@ const { Router } = require("express");
 const router = Router();
 
 
-router.get('/register', (req, res) => {
+router.get('/registration', (req, res) => {
   res.render('users/registration');
 })
 
