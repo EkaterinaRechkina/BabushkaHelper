@@ -63,14 +63,15 @@ sel.onchange = function () {
   // При выборе селекта
   lang = this.value; // Меняем язык на выбранный
 };
+const speech = window.speechSynthesis; // Объявляем переменные
 function speak() {
   // Функция речи
-  const speech = window.speechSynthesis; // Объявляем переменные
+  let voices;
   let voice = "";
   let ourvoice = []; // Сюда будем складывать доступные звуки браузера
-  if (0 === ourvoice.length) {
+  if (!ourvoice.length) {
     // Если равно нулю, то...
-    var voices = speech.getVoices(); // Получаем все языки
+    voices = speech.getVoices(); // Получаем все языки
   }
   for (let i = 0; i < voices.length; i++) {
     // Находим указанный в списке
@@ -83,3 +84,7 @@ function speak() {
   readme.voice = voice; // Задаём язык произношения
   speech.speak(readme); // Произносим
 }
+
+const sound = document.getElementById("sound");
+
+sound.addEventListener("click", speak);
