@@ -24,14 +24,14 @@ try {
     if(!checkUser){
 
   
-      const newUser = await Granny.create({//создаем нового юзера
+      const newUser = await Granny.create({//создаем нового юзера()
         granny_name: username, password 
         })
+        
         //* вот тут вот создается сессия
-          req.session.username = newUser.username // добавляем в сессию айди нового юзера 
+          req.session.username = newUser.granny_name// добавляем в сессию айди нового юзера (newUser.granny_name берем из БД параметр)
           //! куков нет!!!
           // // console.log(reg.session);
-          // req.session.userId = newUser.id;
         
 
           res.redirect('/')
@@ -48,11 +48,12 @@ try {
         })
         //* вот тут вот создается сессия
           req.session.username2 = newUser2.username // добавляем в сессию айди нового юзера 
-          //! куков нет!!!
+          //! куки есть!!!
       
           // req.session.userId = newUser.id;
+        res.sendStatus(200)
         
-          res.redirect('/')
+          // res.redirect('/')
     } else { return res.render('error', {
       message: 'ОЙ!...мы не нашли бабулю...(((',
       error: {}
@@ -64,6 +65,7 @@ try {
   console.log(error)
 }
   res.render('users/registration');
+  // res.send('все работает').end();
 })
 
 

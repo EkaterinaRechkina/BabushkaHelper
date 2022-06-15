@@ -5,7 +5,7 @@ const hbs = require("hbs");
 // const indexRouter = require("./routes/indexRouter");
 const grannyRouter = require("./routes/granny.routes");
 // const postsRouter = require('./routes/posts.routes')
-const registrationRouter = require("./routes/registrationRouter_mine");
+const registrationRouter = require("./routes/registrationRouter.js");
 const loginRouter = require("./routes/loginRouter.js");
 const allPostsRouter = require("./routes/allPostsRouter")
 
@@ -14,19 +14,19 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 
-
-app.set("view engine", "hbs");
-app.set("views", path.join(process.env.PWD, "views"));
-
-hbs.registerPartials(path.join(process.env.PWD, "views", "partials"));
-
-app.use(express.static(path.join(process.env.PWD, "public")));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
 //! шаг 1настройка сессии
 const session = require('express-session') //кука
 const FileStore = require('session-file-store')(session);//хранение сессий
+
+app.set("view engine", "hbs");
+// app.set("views", path.join(process.env.PWD, "views"));
+
+// hbs.registerPartials(path.join(process.env.PWD, "views", "partials"));
+hbs.registerPartials(`${__dirname}/views/partials`); 
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 
 //-------------------------------------------
 
@@ -56,7 +56,7 @@ app.use((req, res, next) => {
 
 app.use("/", grannyRouter);
 app.use("/", registrationRouter);
-app.use("/", loginRouter);
+app.use("/login", loginRouter);
 app.use("/allPosts", allPostsRouter);
 // app.use('/posts', postsRouter)
 
