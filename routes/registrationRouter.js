@@ -24,7 +24,7 @@ try {
         granny_name: username, password 
         })
         //* вот тут вот создается сессия
-          // req.session.username = newUser.username // добавляем в сессию айди нового юзера 
+          req.session.username = newUser.username // добавляем в сессию айди нового юзера 
           //! куков нет!!!
           // // console.log(reg.session);
           // req.session.userId = newUser.id;
@@ -42,7 +42,7 @@ try {
         grandchild_name: username, password //!где айди бабушки ===??? добавить связь
         })
         //* вот тут вот создается сессия
-          // req.session.username = newUser.username // добавляем в сессию айди нового юзера 
+          req.session.username2 = newUser2.username // добавляем в сессию айди нового юзера 
           //! куков нет!!!
       
           // req.session.userId = newUser.id;

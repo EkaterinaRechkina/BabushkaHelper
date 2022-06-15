@@ -40,6 +40,17 @@ const sessionConfig = {
 }
 
 app.use(session(sessionConfig))
+//---------------------------------------------------------------
+//TODO ПОРЯДОК ОЧЕНЬ ВАЖЕН!!! вот этого что снизу!
+//!мидлвара, которая применятся к каждому обработчику, проверка-есть ли сессия
+//!тут сохраняем данные из сессии для использования в наших ХБСках
+app.use((req, res, next) => {
+
+  if(req.session.username) {
+    res.locals.username = req.session.username
+  }
+  next()
+})
 
 app.use("/", grannyRouter);
 app.use("/", registrationRouter);
