@@ -5,8 +5,10 @@ const hbs = require("hbs");
 // const indexRouter = require("./routes/indexRouter");
 const grannyRouter = require("./routes/granny.routes");
 // const postsRouter = require('./routes/posts.routes')
-const registrationRouter = require("./routes/registrationRouter");
+const registrationRouter = require("./routes/registrationRouter_mine");
 const loginRouter = require("./routes/loginRouter.js");
+const allPostsRouter = require("./routes/allPostsRouter")
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -55,6 +57,7 @@ app.use((req, res, next) => {
 app.use("/", grannyRouter);
 app.use("/", registrationRouter);
 app.use("/", loginRouter);
+app.use("/allPosts", allPostsRouter);
 // app.use('/posts', postsRouter)
 
 app.listen(PORT, () => {
