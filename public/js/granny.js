@@ -128,7 +128,6 @@ myImg.onchange = function (event) {
 const title = document.querySelector(".title");
 const instructions = document.querySelector(".instructions");
 title.addEventListener("click", () => {
-  // instructions.style.display = "block";
   instructions.style.cssText =
     " background-color: white;opacity: 0.8;display: block;";
 });
@@ -136,7 +135,5 @@ title.addEventListener("click", () => {
 const closeBtn = document.querySelector(".close");
 
 closeBtn.addEventListener("click", () => {
-  // instructions.style.d = "hidden";
-  // instructions.remove();
   instructions.style.cssText = "display: none;";
 });
