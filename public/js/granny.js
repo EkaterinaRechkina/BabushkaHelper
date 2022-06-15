@@ -101,7 +101,9 @@ function speak() {
 const sound = document.getElementById("sound");
 
 sound.addEventListener("click", speak);
+
 const myImg = document.querySelector(".img");
+
 myImg.onchange = function (event) {
   const target = event.target;
 
@@ -135,5 +137,6 @@ const closeBtn = document.querySelector(".close");
 
 closeBtn.addEventListener("click", () => {
   // instructions.style.d = "hidden";
-  instructions.remove();
+  // instructions.remove();
+  instructions.style.cssText = "display: none;";
 });
