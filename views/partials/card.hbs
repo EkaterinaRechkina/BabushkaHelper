@@ -1,8 +1,16 @@
+<script defer src="/js/popup.js"></script>
 <div class="card">
-  <img src='{{image}}' class="card-img-top" alt={{title}} />
+  <img src='{{image}}' class="card-img-top" alt={{title}} id="myImg"/>
   <div class="card-body">
     <h5 class="card-title">{{title}}</h5>
     <a href="/allPosts/{{id}}/edit" class="btn btn-card btn-success">Изменить</a>
     <button data-danger={{id}} type="button" class="btn btn-danger btn-card ">Удалить</button>
   </div>
+
+  {{!-- <div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div> --}}
 </div>
+
