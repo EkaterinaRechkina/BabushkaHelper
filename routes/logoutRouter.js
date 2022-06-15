@@ -15,6 +15,4 @@ router.get('/', checkIsSession, (req, res) => {
 })
 
 
-
-
 module.exports = router;

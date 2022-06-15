@@ -23,7 +23,6 @@ const FileStore = require('session-file-store')(session);//хранение се
 app.set("view engine", "hbs");
 // app.set("views", path.join(process.env.PWD, "views"));
 
-// hbs.registerPartials(path.join(process.env.PWD, "views", "partials"));
 hbs.registerPartials(`${__dirname}/views/partials`); 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
@@ -49,8 +48,9 @@ app.use(session(sessionConfig))
 //!тут сохраняем данные из сессии для использования в наших ХБСках
 app.use((req, res, next) => {
 
-  if(req.session.username) {
-    res.locals.username = req.session.username
+  if(req.session.granny_name) {
+    res.locals.granny_name = req.session.granny_name
+    res.locals.userId = req.session.id // добавляем в сессию айди нового юзера
   }
   next()
 })
@@ -63,13 +63,6 @@ app.use("/allPosts", allPostsRouter);
 app.use("/upload", imgUploadRouter);
 app.use('/logout', logoutRouter)
 
-// app.use((req, res, next) => {
-//   // if (req.session.userId) {
-//   res.locals.granny_id = 1;
-//   // запись в локальную переменную для hbs
-//   // }
-//   next(); // если нет сессии то будет next()
-// });
 
 app.listen(PORT, () => {
   console.log(`Everything is great on PORT ${PORT}`);

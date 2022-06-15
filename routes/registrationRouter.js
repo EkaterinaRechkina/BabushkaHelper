@@ -34,6 +34,8 @@ router.post('/registration', async (req, res) => {
 
         //* вот тут вот создается сессия
           req.session.granny_name = newUser.granny_name // добавляем в сессию айди нового юзера
+          req.session.userId = newUser.id // добавляем в сессию айди нового юзера
+          
           // console.log(reg.session);
         
           res.redirect('/')

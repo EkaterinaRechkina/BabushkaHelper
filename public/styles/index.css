@@ -62,3 +62,9 @@ main {
 .img {
   margin-bottom: 30px;
 }
+.grannyForm {
+  display: none;
+}
+.choose {
+  display: block;
+}
