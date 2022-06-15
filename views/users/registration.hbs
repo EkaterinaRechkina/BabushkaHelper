@@ -1,6 +1,7 @@
-<form name="form" action="/registration" method="POST">
+<script defer src="/js/registration.js"></script>
+<form name="form" id="form"  method="POST">
   <div class="mb-3">
-    <label for="text" class="form-label">User name</label>
+    <label for="text" class="form-label">Имя</label>
     <input type="text" class="form-control" id="username" name="username" style="color:black">
   </div>  
   <div class="mb-3">
@@ -12,12 +13,14 @@
     </select>
   </div>
   <div class="mb-3">
-    <label for="pass" class="form-label">Password</label>
+    <label for="pass" class="form-label">Пароль</label>
     <input type="password" class="form-control" name="password" id="password" style="color:black">
   </div>
+  
    <div class="mb-3">
-    <label for="nickNameGranny" class="form-label">введите здесь никнейм вашей бабушки и мы найдем ее!</label>
+    <label for="nickNameGranny" class="form-label"> если вы регистрируетесь как ВНУК/ВНУЧКА, введите здесь никнейм вашей бабушки</label>
     <input type="text" class="form-control" name="nickNameGranny" id="nickNameGranny" style="color:black">
   </div>
-  <button type="submit" class="btn btn-primary" style="color:black" >Submit</button>
+ 
+  <button type="submit" class="btn btn-primary" style="color:black" >Войти</button>
 </form>
