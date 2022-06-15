@@ -62,7 +62,9 @@ req ============= middleware ========(обработчик)=====> res
 npx sequelize-cli model:generate --name Post --attributes title:string,image_url:string
 
 Сессии: express-session
+(npm install express-session)
 Хранилище сессий: session-file-store
+(npm install session-file-store)
 
 Если используем session-file-store , ВАЖНО добавить папку sessions в nodemonConfig.ignore
 

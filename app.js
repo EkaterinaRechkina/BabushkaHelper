@@ -13,6 +13,8 @@ const allPostsRouter = require("./routes/allPostsRouter")
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+
+
 app.set("view engine", "hbs");
 app.set("views", path.join(process.env.PWD, "views"));
 
@@ -21,6 +23,25 @@ hbs.registerPartials(path.join(process.env.PWD, "views", "partials"));
 app.use(express.static(path.join(process.env.PWD, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+//! шаг 1настройка сессии
+const session = require('express-session') //кука
+const FileStore = require('session-file-store')(session);//хранение сессий
+
+//-------------------------------------------
+
+//! шаг 2 настройки сессии
+const sessionConfig = {
+  store: new FileStore(), // хранилище сессий
+  name: process.env.COOKIE_NAME, // ключ куки(енв)
+  secret: process.env.SECRET, // шифрование id сессии(в данном случае поменяли на енв )
+  resave: false, // пересохранение сессии (когда что-то поменяли - false)
+  saveUninitialized: false, // сохраняем пустую сессию (чтоб посмотреть)
+  httpOnly: true, // нельзя изменить куки с фронта
+  cookie: { expires: 24 * 60 * 60e3 },
+}
+
+app.use(session(sessionConfig))
 
 app.use("/", grannyRouter);
 app.use("/", registrationRouter);
