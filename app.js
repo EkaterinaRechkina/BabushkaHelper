@@ -16,6 +16,19 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 
+hbs.registerHelper('each_upto', function(ary, max, options) {
+  if(!ary || ary.length == 0)
+      return options.inverse(this);
+
+  var result = [ ];
+  for(var i = 0; i < max && i < ary.length; ++i)
+      result.push(options.fn(ary[i]));
+  return result.join('');
+});
+
+
+hbs.registerPartials(path.join(process.env.PWD, "views", "partials"));
+
 //! шаг 1настройка сессии
 const session = require('express-session') //кука
 const FileStore = require('session-file-store')(session);//хранение сессий
@@ -23,7 +36,7 @@ const FileStore = require('session-file-store')(session);//хранение се
 app.set("view engine", "hbs");
 // app.set("views", path.join(process.env.PWD, "views"));
 
-hbs.registerPartials(`${__dirname}/views/partials`); 
+hbs.registerPartials(`${__dirname}/views/partials`);
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

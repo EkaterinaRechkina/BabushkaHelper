@@ -1,7 +1,7 @@
 <div id="container" class="my-5 row">
-  {{#each posts}}
+  {{#each_upto posts 6}}
   <div data-card class="col-3">
     {{> card}}
   </div>
-  {{/each}}
-</div>
+  {{/each_upto}}
+
