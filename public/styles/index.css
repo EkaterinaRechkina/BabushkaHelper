@@ -4,6 +4,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   background: url(../img/background.jpg);
+  background-repeat: no-repeat;
 }
 /* Footer внизу страницы */
 main {
