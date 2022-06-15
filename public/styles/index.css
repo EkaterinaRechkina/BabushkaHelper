@@ -100,9 +100,10 @@ main {
 .navbar-brand {
   font-size: 30px;
 }
-.grannyForm {
+.grannyForm,.childForm {
   display: none;
 }
+
 .choose {
   display: block;
 }
