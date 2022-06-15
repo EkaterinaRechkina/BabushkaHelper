@@ -1,6 +1,3 @@
-//Распознаем изображение
-// import Tesseract from "tesseract.js";
-
 const log = document.getElementById("log");
 const pre = document.getElementsByClassName("pre");
 function recognize(file, lang, logger) {
@@ -124,6 +121,30 @@ myImg.onchange = function (event) {
 
   fileReader.readAsDataURL(target.files[0]);
 };
+
+const uploadForm = document.querySelector("#upload");
+
+uploadForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const btn = event.target;
+  const img = event.target.myImg.value;
+  console.log("img", img);
+  const title = img.slice(12);
+  console.log(title);
+  const imgPath = `public/img/${title}`;
+  console.log(imgPath);
+  const response = await fetch("/upload", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ title, imgPath }),
+  });
+
+  console.log("response", response);
+  const res = await response.json();
+  console.log("res", res);
+});
 
 const title = document.querySelector(".title");
 const instructions = document.querySelector(".instructions");

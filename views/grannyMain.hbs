@@ -32,14 +32,23 @@
     <option value="rus" selected>Русский</option>
     <option value="eng">English</option>
 </select>
+<form id="upload"  
+name="upload"
+      action='' 
+      method='post' 
+      encType="multipart/form-data">
+    <input type="file" id="file" name="myImg" class="img">
 
-<input type="file" id="file" name="myImg" class="img">
-
-<div id="log" style="min-height: 200px; border: 1px solid #eee" class="log">
+    {{!-- <button type="submit" >test</button> --}}
+    <div id="log" style="min-height: 200px; border: 1px solid #eee" class="log">
     <pre class="pre"></pre>
 </div>
 <br>
-<button type="button" class="btn btn-success start" id="activate">Прочесть текст из картинки</button>
+<button type="submit" class="btn btn-success start" id="activate">Прочесть текст из картинки</button>
+</form>
+
+
+
 <br>
 <br>
  {{!-- <button id="activate">Начать</button> --}}
