@@ -70,14 +70,15 @@ router
 
   router.put('/:id', async (req, res) => {
     let entry;
-
+    console.log(req.params.id);
     try {
-      entry = await Library.update({ title: req.body.title, image: req.body.image },{where:{id:req.params.id}, returning: true, plain: true});
+      entry = await Library.findOne({where: { id: req.params.id }} )
+      await entry.update({ title: req.body.title, image: req.body.image });
+
     } catch (error) {
       return res.json({ isUpdateSuccessful: false, errorMessage: 'Не удалось обновить запись в базе данных.' });
     }
-
-    return res.json({ isUpdateSuccessful: true, entryID: entry[1].id });
+    res.sendStatus(200)
   });
 
 

@@ -1,6 +1,6 @@
-<form id="editEntryForm" name="postForm" method="POST" action="/allPosts">
+<form id={{entry.id}} name="editForm" method="POST" action="/allPostsEdit">
   <div class="mb-3">
-    <label for="exampleTitle" class="form-label">Как назовешь?</label>
+    <label for="exampleTitle" class="form-label">Поправишь текст?</label>
     <input
       name="title"
       type="text"
@@ -11,8 +11,14 @@
     />
   </div>
   <div class="mb-3">
-    <label for="exampleImage" class="form-label">Вставь адрес картинки</label>
-    <input name="image" type="text" class="form-control" id="exampleImage" value="{{entry.image}}" />
+    <label for="exampleImage" class="form-label">Исправь адрес картинки</label>
+    <input
+      name="image"
+      type="text"
+      class="form-control"
+      id="exampleImage"
+      value="{{entry.image}}"
+    />
   </div>
-  <button type="submit" class="btn btn-success">Отправить</button>
+  <button type="submit" class="btn btn-success">Редактировать</button>
 </form>
