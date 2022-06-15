@@ -62,14 +62,6 @@ console.log(req.body);
   }
 })
 
-//!убить куки и сессию
-router.get('/logout', checkIsNotSession, (req, res) => {
-  req.session.destroy();
-  res.clearCookie(process.env.COOKIE_NAME)
-  
-  res.render('/')
-})
-
 
 // router.post('/', (req, res) => {
 

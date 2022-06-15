@@ -6,26 +6,20 @@ const hbs = require("hbs");
 // const indexRouter = require("./routes/indexRouter");
 const grannyRouter = require("./routes/granny.routes");
 // const postsRouter = require('./routes/posts.routes')
-<<<<<<< HEAD
 const registrationRouter = require("./routes/registrationRouter.js");
-=======
-const registrationRouter = require("./routes/registrationRouter");
->>>>>>> f556a51c3b04ba40b5c667e8c1f807a13b6b6dfc
 const loginRouter = require("./routes/loginRouter.js");
 const allPostsRouter = require("./routes/allPostsRouter");
 const imgUploadRouter = require("./routes/imgRouter");
+const logoutRouter = require('./routes/logoutRouter.js')
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-<<<<<<< HEAD
 
 
 //! шаг 1настройка сессии
 const session = require('express-session') //кука
 const FileStore = require('session-file-store')(session);//хранение сессий
 
-=======
->>>>>>> f556a51c3b04ba40b5c667e8c1f807a13b6b6dfc
 app.set("view engine", "hbs");
 // app.set("views", path.join(process.env.PWD, "views"));
 
@@ -35,14 +29,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-<<<<<<< HEAD
-=======
-//! шаг 1настройка сессии
-const session = require("express-session"); //кука
-const FileStore = require("session-file-store")(session); //хранение сессий
->>>>>>> f556a51c3b04ba40b5c667e8c1f807a13b6b6dfc
 
-//-------------------------------------------
 
 //! шаг 2 настройки сессии
 const sessionConfig = {
@@ -55,7 +42,6 @@ const sessionConfig = {
   cookie: { expires: 24 * 60 * 60e3 },
 };
 
-<<<<<<< HEAD
 app.use(session(sessionConfig))
 //---------------------------------------------------------------
 //TODO ПОРЯДОК ОЧЕНЬ ВАЖЕН!!! вот этого что снизу!
@@ -68,16 +54,14 @@ app.use((req, res, next) => {
   }
   next()
 })
-=======
-app.use(session(sessionConfig));
->>>>>>> f556a51c3b04ba40b5c667e8c1f807a13b6b6dfc
+
 
 app.use("/", grannyRouter);
 app.use("/", registrationRouter);
 app.use("/login", loginRouter);
 app.use("/allPosts", allPostsRouter);
 app.use("/upload", imgUploadRouter);
-// app.use('/posts', postsRouter)
+app.use('/logout', logoutRouter)
 
 // app.use((req, res, next) => {
 //   // if (req.session.userId) {
