@@ -1,6 +1,8 @@
 //Распознаем изображение
 // import Tesseract from "tesseract.js";
 
+
+
 const log = document.getElementById("log");
 const pre = document.getElementsByClassName("pre");
 function recognize(file, lang, logger) {

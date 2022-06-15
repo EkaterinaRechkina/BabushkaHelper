@@ -53,3 +53,7 @@ main {
   height: 16vw;
   object-fit: cover;
 }
+
+#postForm {
+  width: 70%;
+}
