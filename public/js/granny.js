@@ -120,7 +120,7 @@ uploadForm.addEventListener("submit", async (event) => {
   console.log("img", img);
   const title = img.slice(12);
   console.log(title);
-  const imgPath = `public/img/${title}`;
+  const imgPath = `/img/${title}`;
   console.log(imgPath);
   const response = await fetch("/upload", {
     method: "POST",
