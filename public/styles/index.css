@@ -99,3 +99,9 @@ main {
 .navbar-brand {
   font-size: 30px;
 } */
+.grannyForm {
+  display: none;
+}
+.choose {
+  display: block;
+}
