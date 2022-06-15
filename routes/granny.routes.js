@@ -5,7 +5,7 @@ const router = Router();
 
 router.get("/", (req, res) => {
   //   res.send("Hi");
-  res.render("./grannyMain");
+  res.render("grannyMain");
 });
 
 module.exports = router;

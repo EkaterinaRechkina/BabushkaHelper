@@ -1,5 +1,5 @@
 const checkIsSession = (req, res, next) => {
-  if (req.session.userId) {
+  if (req.session.username) {
     res.redirect('/')
   } else {
     next()
@@ -7,7 +7,7 @@ const checkIsSession = (req, res, next) => {
 }
 
 const checkIsNotSession = (req, res, next) => {
-  if (!req.session.userId) {
+  if (!req.session.username) {
     res.redirect('/')
   } else {
     next()
