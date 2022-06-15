@@ -48,6 +48,14 @@ app.use("/allPosts", allPostsRouter);
 app.use("/upload", imgUploadRouter);
 // app.use('/posts', postsRouter)
 
+// app.use((req, res, next) => {
+//   // if (req.session.userId) {
+//   res.locals.granny_id = 1;
+//   // запись в локальную переменную для hbs
+//   // }
+//   next(); // если нет сессии то будет next()
+// });
+
 app.listen(PORT, () => {
   console.log(`Everything is great on PORT ${PORT}`);
 });

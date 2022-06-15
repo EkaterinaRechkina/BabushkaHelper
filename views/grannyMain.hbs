@@ -30,7 +30,7 @@
 <br>
 <select name="langs" id="langs">
     <option value="rus" selected>Русский</option>
-    <option value="eng">English</option>
+    {{!-- <option value="eng">English</option> --}}
 </select>
 <form id="upload"  
 name="upload"
@@ -47,17 +47,11 @@ name="upload"
 <button type="submit" class="btn btn-success start" id="activate">Прочесть текст из картинки</button>
 </form>
 
-
-
 <br>
-<br>
- {{!-- <button id="activate">Начать</button> --}}
  <div class="main">
-    <br>
- <p>Выберите язык произношения<select id="lang" class="form-select">
-    </select>
-    <br>
-    <br>
+ 
+ {{!-- <p>Выберите язык произношения<select id="lang" class="form-select">
+    </select> --}}
     <button type="button" id="sound" class="btn btn-success">Озвучить</button>
      </div>
 

@@ -21,11 +21,14 @@ const router = Router();
 // const upload = multer({ storage });
 
 router.post("/", async (req, res) => {
-  console.log(req.body);
+  granny_id = 1;
+  // const test = res.locals.granny_id;
+  // console.log("test", test);
   const { title, imgPath } = req.body;
   const newImg = await Library.create({
     title: title,
     image: imgPath,
+    granny_id,
   });
   res.json({ status: true });
 });
