@@ -53,3 +53,12 @@ main {
   height: 16vw;
   object-fit: cover;
 }
+
+
+#postForm {
+  width: 70%;
+}
+
+.img {
+  margin-bottom: 30px;
+}

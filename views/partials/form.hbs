@@ -1,0 +1,18 @@
+<form id="postForm" name="postForm" method="POST" action="/allPosts">
+  <div class="mb-3">
+    <label for="exampleTitle" class="form-label">Как назовешь?</label>
+    <input
+      name="title"
+      type="text"
+      class="form-control"
+      id="exampleTitle"
+      aria-describedby="exampleTitle"
+      value=""{{entry.title}}""
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleImage" class="form-label">Вставь адрес картинки</label>
+    <input name="image" type="text" class="form-control" id="exampleImage" value=""{{entry.image}}"" />
+  </div>
+  <button type="submit" class="btn btn-success">Отправить</button>
+</form>
