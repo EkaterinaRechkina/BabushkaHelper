@@ -4,6 +4,9 @@ const { checkIsSession, checkIsNotSession } = require('../middlewares/index.midd
 
 const router = Router();
 
+router.get('/registration', (req, res) => {
+  res.render('./users/registration')
+});
 
 router.get('/registration', (req, res) => {
   res.render('users/registration');
@@ -19,6 +22,7 @@ try {
 
     const checkUser = await Granny.findOne({where: {granny_name: username}})// проверяем в БД наличие повторений  пользователя
     if(!checkUser){
+
   
       const newUser = await Granny.create({//создаем нового юзера
         granny_name: username, password 
@@ -29,6 +33,7 @@ try {
           // // console.log(reg.session);
           // req.session.userId = newUser.id;
         
+
           res.redirect('/')
     } else { return res.render('error', {
       message: 'ОЙ!...ТАКОЕ ИМЯ УЖЕ ЕСТЬ...(((',

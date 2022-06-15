@@ -1,31 +1,56 @@
 {{!-- Библиотека считывания текста --}}
 <script defer src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
 <script defer src="/js/granny.js"></script>
- <h1>Бабушкин помощник 	&#127848;</h1>
+
+<div class="container mx-auto">
+<h1 class="title">Инструкция</h1>
+
+ <div class="instructions">
+   <p >
+     Дорогая бабушка!
+     Ниже Инструкция к приложению
+     <ul>
+         <li>Выбери картинку и загрузи ее через Choose file</li>
+         <li>Выбери язык картинки</li>
+         <li>Нажми на кнопку -Прочесть текст из картинки</li>
+         <li>Выбери язык озвучки</li>
+         <li>Нажми на кнопку - Озвучить</li>
+     </ul>
+    </p>
+<input type="button" value="Скрыть" class="btn btn-secondary close">
+ </div>
+ 
+
+
+     <h1>Бабушкин помощник 	&#127848;</h1>
  <br>
+
+<img src="" id="img1" class="image"> 
+<br>
+<br>
 <select name="langs" id="langs">
     <option value="rus" selected>Русский</option>
     <option value="eng">English</option>
 </select>
 
-<input type="file" id="file"/>
+<input type="file" id="file" name="myImg" class="img">
 
-<div id="log" style="min-height: 200px; border: 1px solid #eee">
+<div id="log" style="min-height: 200px; border: 1px solid #eee" class="log">
     <pre class="pre"></pre>
 </div>
 <br>
-<button type="button" id="start">Прочесть текст с картинки</button>
+<button type="button" class="btn btn-success start" id="activate">Прочесть текст из картинки</button>
 <br>
 <br>
-
-<br>
-<br>
-<button id="activate">Начать</button>
-<div class="main">
-    
- <p>Выберите язык произношения<select id="lang">
+ {{!-- <button id="activate">Начать</button> --}}
+ <div class="main">
+    <br>
+ <p>Выберите язык произношения<select id="lang" class="form-select">
     </select>
-    <button type="button" id="sound">Озвучить</button>
+    <br>
+    <br>
+    <button type="button" id="sound" class="btn btn-success">Озвучить</button>
+     </div>
+
 </div>
 
-{{!-- test --}}
