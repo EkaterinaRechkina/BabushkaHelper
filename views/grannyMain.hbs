@@ -1,7 +1,9 @@
 {{!-- Библиотека считывания текста --}}
 <script defer src="/js/granny.js"></script>
 <script defer src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
+{{#if granny_name}}
 <h1>Привет, {{granny_name}}</h1>
+{{/if}}
 <div class="container mx-auto">
 <h2 class="title">Инструкция</h2>
 
@@ -19,23 +21,23 @@
     </p>
 <input type="button" value="Скрыть" class="btn btn-secondary close">
  </div>
- 
+
 
 
      <h1>Бабушкин помощник 	&#127848;</h1>
  <br>
 
-<img src="" id="img1" class="image"> 
+<img src="" id="img1" class="image">
 <br>
 <br>
 <select name="langs" id="langs">
     <option value="rus" selected>Русский</option>
     {{!-- <option value="eng">English</option> --}}
 </select>
-<form id="upload"  
+<form id="upload"
 name="upload"
-      action='' 
-      method='post' 
+      action=''
+      method='post'
       encType="multipart/form-data">
     <input type="file" id="file" name="myImg" class="img">
     {{!-- <button type="submit" >test</button> --}}
@@ -48,7 +50,7 @@ name="upload"
 
 <br>
  <div class="main">
- 
+
  {{!-- <p>Выберите язык произношения<select id="lang" class="form-select">
     </select> --}}
     <button type="button" id="sound" class="btn btn-success">Озвучить</button>
