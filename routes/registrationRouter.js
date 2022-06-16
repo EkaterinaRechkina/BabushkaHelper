@@ -16,7 +16,7 @@ router.get('/registration', (req, res) => {
 })
 
 
-router.post('/registration', async (req, res) => {
+router.post('/registration/granny', async (req, res) => {
   const {granny_name,  password } = req.body      //достаем из инпута данные пользователя
   console.log(req.body);
   try {
@@ -44,7 +44,7 @@ router.post('/registration', async (req, res) => {
 
   } } catch (error) {
     console.log(error)
-    res.sendStatus(404)
+    res.sendStatus(401)
   }
   })
   

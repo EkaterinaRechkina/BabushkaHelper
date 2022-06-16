@@ -9,13 +9,14 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       granny_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        unique: true,
       },
       password: {
         type: Sequelize.STRING
       },
-      granny_id: {
-        type: Sequelize.INTEGER
+      name: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
