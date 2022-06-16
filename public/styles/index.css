@@ -240,9 +240,8 @@ main {
 }
 @media only screen and (max-width: 471px) {
   .container-instruction {
-    top: 77px;
+    top: 81px;
     left: 13px;
-
   }
 }
 
