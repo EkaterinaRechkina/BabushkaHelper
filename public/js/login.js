@@ -29,6 +29,6 @@ form.addEventListener("submit", async (event) => {
     window.location = "/"; //
   } else {
     console.log("что-то не так");
-    errorUser.innerText = "Такого пользователя нет.Зарегистрируйтесь";
+    errorUser.innerText = "Такого пользователя нет.Зарегистрируйтесь!";
   }
 });
