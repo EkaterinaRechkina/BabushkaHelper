@@ -1,22 +1,51 @@
 <script defer src="/js/registration.js"></script>
+<script defer src="/js/registrationChild.js"></script>
 <script defer src="/js/choose.js"></script>
 <div class="choose">
-  <input type="text" id="granny" value="Регистрация для бабули">
-  <input type="text"  id="child" value="Регистрация для внуков">
+  <input type="text" id="granny" value="Регистрация для бабули" class="btn btn-primary"> 
+  <input type="text"  id="child" value="Регистрация для внуков" class="btn btn-primary">
 </div>
 <div class="grannyForm">
 <form name="form" id="form"  method="POST">
   <div class="mb-3">
-    <label for="text" class="form-label">Имя</label>
+    <label for="username" class="form-label">Имя</label>
     <input type="text" class="form-control" id="username" name="username" style="color:black">
   </div>  
 
   <div class="mb-3">
-    <label for="pass" class="form-label">Пароль</label>
+    <label for="password" class="form-label">Пароль</label>
     <input type="password" class="form-control" name="password" id="password" style="color:black">
   </div>
   
   <button type="submit" class="btn btn-primary" style="color:black" >Зарегистрироваться</button>
+   <input type="button" class="btn btn-primary back" style="color:black" value="Назад"> </input>
+</form>
+
+</div>
+
+
+ 
+
+
+<div class="childForm">
+  <form name="form" id="formChild"  method="POST">
+    <div class="mb-3">
+    <label for="usernameChild" class="form-label">Имя</label>
+    <input type="text" class="form-control" id="usernameChild" name="username" style="color:black">
+  </div>  
+ 
+  <div class="mb-3">
+    <label for="passwordChild" class="form-label">Пароль</label>
+    <input type="password" class="form-control" name="password" id="passwordChild" style="color:black">
+  </div>
+  
+   <div class="mb-3">
+    <label for="nickNameChild" class="form-label">  Введите здесь имя Вашей бабушки</label>
+    <input type="text" class="form-control" name="nickNameChild" id="nickNameChild" style="color:black">
+  </div>
+ 
+  <button type="submit" class="btn btn-primary" style="color:black" >Зарегистрироваться</button>
+  <input type="button" class="btn btn-primary back" style="color:black" value="Назад"> </input>
 </form>
 
 </div>
