@@ -136,10 +136,11 @@ uploadForm.addEventListener("submit", async (event) => {
 });
 
 title.addEventListener("click", () => {
-  instructions.style.cssText =
-    " background-color: white;opacity: 0.8;display: block;";
+  title.style.display = "none";
+  instructions.style.cssText = " background-color: white;display: block;";
 });
 
 closeBtn.addEventListener("click", () => {
+  title.style.display = "block";
   instructions.style.cssText = "display: none;";
 });

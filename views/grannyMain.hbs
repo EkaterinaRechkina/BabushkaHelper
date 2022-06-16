@@ -1,60 +1,70 @@
-{{!-- Библиотека считывания текста --}}
+{{! Библиотека считывания текста }}
 <script defer src="/js/granny.js"></script>
-<script defer src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
+<script
+  defer
+  src="https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js"
+></script>
 {{#if granny_name}}
-<h1>Привет, {{granny_name}}</h1>
+  <h1>Привет, <span class="greetingName">{{granny_name}}</span> </h1>
 {{/if}}
 <div class="container mx-auto">
-<h2 class="title">Инструкция</h2>
 
- <div class="instructions">
-   <p >
-     Дорогая бабушка!
-     Ниже Инструкция к приложению
-     <ul>
-         <li>Выбери картинку и загрузи ее через Choose file</li>
-         <li>Выбери язык картинки</li>
-         <li>Нажми на кнопку -Прочесть текст из картинки</li>
-         <li>Выбери язык озвучки</li>
-         <li>Нажми на кнопку - Озвучить</li>
-     </ul>
-    </p>
-<input type="button" value="Скрыть" class="btn btn-secondary closeInstruction">
- </div>
+  <div class="container-instruction">
+    <h2 class="title">Инструкция</h2>
 
+    <div class="instructions">
+      <p>
+        Дорогая бабушка!</p>
+      <p>Ниже Инструкция к приложению</p>
 
+      <ul>
+        <li>Выбери картинку и загрузи ее через Choose file</li>
+        <li>Выбери язык картинки</li>
+        <li>Нажми на кнопку -Прочесть текст из картинки</li>
+        <li>Выбери язык озвучки</li>
+        <li>Нажми на кнопку - Озвучить</li>
+      </ul>
 
-   
- <br>
+      <input
+        type="button"
+        value="Скрыть"
+        class="btn btn-secondary closeInstruction"
+      />
+    </div>
+  </div>
 
-<img src="" id="img1" class="image">
-<br>
-<br>
-<select name="langs" id="langs">
+  <br />
+
+  <img src="" id="img1" class="image" />
+  <br />
+  <br />
+  <select name="langs" id="langs">
     <option value="rus" selected>Русский</option>
-    {{!-- <option value="eng">English</option> --}}
-</select>
-<form id="upload"
-name="upload"
-      action=''
-      method='post'
-      encType="multipart/form-data">
-    <input type="file" id="file" name="myImg" class="img">
-    {{!-- <button type="submit" >test</button> --}}
+    {{! <option value="eng">English</option> }}
+  </select>
+  <form
+    id="upload"
+    name="upload"
+    action=""
+    method="post"
+    encType="multipart/form-data"
+  >
+    <input type="file" id="file" name="myImg" class="img" />
+    {{! <button type="submit" >test</button> }}
     <div id="log" style="min-height: 200px; border: 1px solid #eee" class="log">
-    <pre class="pre"></pre>
-</div>
-<br>
-<button type="submit" class="btn btn-success start" id="activate">Прочесть текст из картинки</button>
-</form>
+      <pre class="pre"></pre>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success start" id="activate">Прочесть
+      текст из картинки</button>
+  </form>
 
-<br>
- <div class="main">
+  <br />
+  <div class="main">
 
- {{!-- <p>Выберите язык произношения<select id="lang" class="form-select">
-    </select> --}}
+    {{! <p>Выберите язык произношения<select id="lang" class="form-select">
+    </select> }}
     <button type="button" id="sound" class="btn btn-success">Озвучить</button>
-     </div>
+  </div>
 
 </div>
-
