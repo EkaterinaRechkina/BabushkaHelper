@@ -106,6 +106,10 @@ main {
 
 .choose {
   display: block;
+  /* margin: 0 auto; */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 /* The Modal (background) */
@@ -158,7 +162,7 @@ main {
 .close {
   position: absolute;
   top: 15px;
-  right: 35px;
+  right: 148px;
   color: #f1f1f1;
   font-size: 40px;
   font-weight: bold;

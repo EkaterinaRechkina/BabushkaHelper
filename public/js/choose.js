@@ -8,12 +8,18 @@ granny.addEventListener("click", (event) => {
   event.preventDefault();
   grannyForm.style.display = "block";
   choose.style.display = "none";
-  console.log("adddddddd");
 });
 
 child.addEventListener("click", (event) => {
   event.preventDefault();
   childForm.style.display = "block";
   choose.style.display = "none";
-  console.log("adddddddd");
+});
+
+document.querySelectorAll(".back").forEach((item) => {
+  item.addEventListener("click", (event) => {
+    grannyForm.style.display = "none";
+    childForm.style.display = "none";
+    choose.style.display = "flex";
+  });
 });
