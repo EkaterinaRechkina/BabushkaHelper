@@ -4,13 +4,16 @@ const captionText = document.getElementById("caption");
 
 const span = document.getElementsByClassName("close")[0];
 
-span.onclick = function () {
+function closePopup() {
   popup.style.display = "none";
-};
+}
 
-//   if (event.key === "Escape") {
-//     closePopup();
-//   }
+span.addEventListener("click", closePopup);
+document.addEventListener("keyup", (event) => {
+  if (event.key === "Escape") {
+    closePopup();
+  }
+});
 
 document.querySelectorAll("#myImg").forEach((item) => {
   item.addEventListener("click", (event) => {
