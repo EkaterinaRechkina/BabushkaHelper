@@ -8,7 +8,7 @@ const myImg = document.querySelector(".img");
 const uploadForm = document.querySelector("#upload");
 const title = document.querySelector(".title");
 const instructions = document.querySelector(".instructions");
-const closeBtn = document.querySelector(".close");
+const closeBtn = document.querySelector(".closeInstruction");
 
 function recognize(file, lang, logger) {
   return Tesseract.recognize(file, lang, { logger }).then(
