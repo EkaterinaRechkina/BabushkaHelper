@@ -23,11 +23,11 @@ router.post('/registration', async (req, res) => {
     
     const checkUser = await Granny.findOne({where: {granny_name}})  // проверяем в БД наличие повторений  почты
     //!хэширование пароля
-    const hashedPassword = await bcrypt.hash(password, saltRounds)
-
+    
     //проверяем, есть ли в БД такой логин и почта при регистрации
     if(!checkUser){
-    
+      
+      const hashedPassword = await bcrypt.hash(password, saltRounds)
       const newUser = await Granny.create({       //создаем нового юзера
           granny_name, password: hashedPassword   //!вместо пароля передаем наш захэшированный пароль
         })
@@ -38,17 +38,13 @@ router.post('/registration', async (req, res) => {
           
           // console.log(reg.session);
         
-          res.redirect('/')
-    } else { return res.render('error', {
-      message: 'упс...такой емайл уже есть...(((',
-      error: {}
-    });}
+          res.sendStatus(200)
+    } else { return res.sendStatus(500)//подобрать подх ошибку
    
-    
-    
-    
-  } catch (error) {
+
+  } } catch (error) {
     console.log(error)
+    res.sendStatus(404)
   }
   })
   
