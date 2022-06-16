@@ -1,5 +1,5 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -27,16 +27,24 @@ main {
   display: none;
   padding: 30px;
 }
+
+.container-instruction {
+  position: fixed;
+  top: 76px;
+  right: 372px;
+  z-index: 1;
+}
+
 .title:hover {
   cursor: pointer;
 }
 
-.log{
+.log {
   background-color: white;
   opacity: 0.8;
 }
 
-.all-posts:hover{
+.all-posts:hover {
   color: #167247;
 }
 
@@ -54,7 +62,6 @@ main {
   height: 16vw;
   object-fit: cover;
 }
-
 
 #postForm {
   width: 70%;
@@ -77,7 +84,6 @@ main {
   justify-content: flex-end;
 }
 
-
 .container-fluid {
   justify-content: right;
   width: 90%;
@@ -92,7 +98,7 @@ main {
   background-color: white;
   height: max-content;
   border-width: 1px;
-  border-color:border-color-translucent;
+  border-color: border-color-translucent;
   border-radius: calc(0.375rem - 1px);
   border-color: rgba(0, 0, 0, 0.175);
 }
@@ -100,7 +106,8 @@ main {
 .navbar-brand {
   font-size: 30px;
 }
-.grannyForm,.childForm {
+.grannyForm,
+.childForm {
   display: none;
 }
 
@@ -116,15 +123,15 @@ main {
 .modal {
   display: none; /* Hidden by default */
   position: fixed;
-  z-index: 1; /* Sit on top */
+  z-index: 2; /* Sit on top */
   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
 }
 
 /* Modal Content (Image) */
@@ -148,14 +155,19 @@ main {
 }
 
 /* Add Animation - Zoom in the Modal */
-.modal-content, #caption {
+.modal-content,
+#caption {
   animation-name: zoom;
   animation-duration: 0.6s;
 }
 
 @keyframes zoom {
-  from {transform:scale(0)}
-  to {transform:scale(1)}
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 /* The Close Button */
@@ -175,10 +187,72 @@ main {
   text-decoration: none;
   cursor: pointer;
 }
+.nav-link {
+  font-size: 24px;
+}
+
+.greetingName {
+  font-style: italic;
+}
+
+@media only screen and (max-width: 1400px) {
+  .container-instruction {
+    top: 87px;
+    right: 45px;
+  }
+}
 
 /* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 820px) {
   .modal-content {
-      width: 100%;
+    width: 100%;
   }
+  .footer{
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .container-instruction {
+    top: 87px;
+    left: 14px;
+  }
+
+  .footer{
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 495px) {
+  .container-instruction {
+    top: 81px;
+    left: 14px;
+  }
+  .header {
+    font-size: 16px;
+  }
+   .footer{
+    font-size: 12px;
+  }
+  .image {
+    width: 300px;
+  }
+}
+@media only screen and (max-width: 471px) {
+  .container-instruction {
+    top: 77px;
+    left: 13px;
+
+  }
+}
+
+@media only screen and (max-width: 321px) {
+  .container-instruction {
+    top: 102px;
+    left: 12px;
+  }
+   .footer{
+    font-size: 10px;
+  }
+ 
 }
