@@ -16,50 +16,49 @@ router.post('/', async(req, res) => {
   const { granny_name, password} = req.body
 console.log(req.body);
   try {
-   const user = await Granny.findOne({
+   const granny = await Granny.findOne({
         where: {
           granny_name,
         },
       })
-  console.log(user)
-  
-  //сначала проверяем по логину в базе
+  console.log(granny, 'бабушка в таблице')
+
+  const newChild = await Grandchild.findOne({
+    where: {
+      granny_name,
+    },
+  })
+  console.log(newChild);
+  const user = granny || newChild
+
       if(!user) {
-        // throw Error('такого логина нет...')
-        return res.render('error', {
-          message: 'упс...такого логина не существует...(((',
-          error: {}
-        });
+        // res.send('ошибка')
+         console.log('===================')
+        return res.sendStatus(404)
          }
-   
-  
+
   const isValidPass = await bcrypt.compare(password, user.password)//расхэшируем пароль
   
    //затем проверяем пароль 
   if(!isValidPass) {
     // throw Error('неправильный пароль...')
-    return res.render('error', { //TODO return обязателен везде!
-      message: '!!!неправильный пароль...попробуйте еще',
-      error: {}
-    });
+    return res.sendStatus(404)//рповерить оши
     // res.render('/error')
   
     //если прошли роверки на логин и пароль, создаем сессию
   } else {
-    req.session.granny_name = user.granny_name // добавляем в сессию айди нового юзера
-    // // console.log(reg.session);
-   
-  
-    res.redirect('/')
+    req.session.granny_name = user.granny_name 
+    res.json(user)
+    // добавляем в сессию айди нового юзера
+    // res.redirect('/')
     
   }
    
-
-
-
 } catch (error) {
-    console.error(error)
+    console.error('ошибка',error)
+    res.sendStatus(404)
   }
+  
 })
 
 

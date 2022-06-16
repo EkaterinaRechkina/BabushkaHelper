@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Grandchild.init({
-    grandchild_name: DataTypes.STRING,
+    granny_name: DataTypes.STRING,
     password: DataTypes.STRING,
     granny_id: DataTypes.INTEGER
   }, {

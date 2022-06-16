@@ -6,15 +6,18 @@
   <input type="text"  id="child" value="Регистрация для внуков" class="btn btn-primary">
 </div>
 <div class="grannyForm">
-<form name="form" id="form"  method="POST">
+<form name="form" id="form"  method="POST" class="needs-validation was-validated" novalidate="">
   <div class="mb-3">
-    <label for="username" class="form-label">Имя</label>
-    <input type="text" class="form-control" id="username" name="username" style="color:black">
+    <label for="username" class="form-label" >Имя</label>
+    <input type="text" class="form-control" id="username" name="username" style="color:black" required="">
+     <div class="valid-tooltip">
+          Looks good!
+        </div>
   </div>  
 
   <div class="mb-3">
     <label for="password" class="form-label">Пароль</label>
-    <input type="password" class="form-control" name="password" id="password" style="color:black">
+    <input type="password" class="form-control" name="password" id="password" style="color:black" required="">
   </div>
   
   <button type="submit" class="btn btn-primary" style="color:black" >Зарегистрироваться</button>
@@ -24,11 +27,8 @@
 </div>
 
 
- 
-
-
 <div class="childForm">
-  <form name="form" id="formChild"  method="POST">
+  <form name="form" id="formChild"  method="POST" class="needs-validation was-validated" novalidate="">
     <div class="mb-3">
     <label for="usernameChild" class="form-label">Имя</label>
     <input type="text" class="form-control" id="usernameChild" name="username" style="color:black">
