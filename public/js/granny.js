@@ -9,6 +9,7 @@ const uploadForm = document.querySelector("#upload");
 const title = document.querySelector(".title");
 const instructions = document.querySelector(".instructions");
 const closeBtn = document.querySelector(".closeInstruction");
+const containerMain = document.getElementById('container-main')
 
 function recognize(file, lang, logger) {
   return Tesseract.recognize(file, lang, { logger }).then(
@@ -48,6 +49,9 @@ document.querySelector(".start").addEventListener("click", () => {
 });
 
 // Задаём стандартный язык произношения
+
+
+
 
 activate.onclick = function () {
   // При нажатии на кнопку
@@ -144,3 +148,9 @@ closeBtn.addEventListener("click", () => {
   title.style.display = "block";
   instructions.style.cssText = "display: none;";
 });
+
+containerMain.addEventListener("click", () => {
+  if (!localStorage.getItem('user')) {
+    alert('Для начала зарегистрируйтесь!');
+  }
+})
