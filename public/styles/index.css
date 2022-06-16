@@ -127,7 +127,7 @@ main {
   background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
 /* .pos{
-  position: relative; 
+  position: relative;
 } */
 /* Modal Content (Image) */
 .modal-content {
@@ -183,4 +183,8 @@ main {
   .modal-content {
       width: 100%;
   }
+}
+
+.registr-btn {
+  width: 280px;
 }
