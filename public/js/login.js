@@ -1,35 +1,34 @@
-console.log('helllooow LOGIIIN');
+console.log("helllooow LOGIIIN");
 
-const form = document.querySelector('form');
-
+const form = document.querySelector("form");
+const errorUser = document.querySelector(".errorUser");
 // console.log(form, "form");
-form.addEventListener('submit', async (event) => {
+form.addEventListener("submit", async (event) => {
   // * Если event.preventDefault() - то форма не отправляется,
   // * стр. не перезагружается, запись в БД не создаётся
   event.preventDefault();
-  
-  const granny_name = event.target.username.value;//по назв инпута
-  console.log(granny_name, '===========12');
+
+  const granny_name = event.target.username.value; //по назв инпута
+  console.log(granny_name, "===========12");
   const password = event.target.password.value;
-  const bodyObj = { granny_name, password};
+  const bodyObj = { granny_name, password };
   console.log(bodyObj);
 
-  const response = await fetch('/login', {//!адрес с action из формы\
-    
-    method: 'POST',
-    credentials: 'include',
+  const response = await fetch("/login", {
+    //!адрес с action из формы\
+
+    method: "POST",
+    credentials: "include",
     headers: {
-      'Content-type': 'application/json',
-      
+      "Content-type": "application/json",
     },
     body: JSON.stringify(bodyObj),
   });
-console.log(response, 'response', response.ok)
-  if(response.ok){
-    window.location = "/" //
+  console.log(response, "response", response.ok);
+  if (response.ok) {
+    window.location = "/"; //
   } else {
-   console.log('что-то не так')
-
+    console.log("что-то не так");
+    errorUser.innerText = "Такого пользователя нет.Зарегистрируйтесь!";
   }
-  
 });
