@@ -126,9 +126,7 @@ main {
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
-/* .pos{
-  position: relative; 
-} */
+
 /* Modal Content (Image) */
 .modal-content {
   margin: auto;
