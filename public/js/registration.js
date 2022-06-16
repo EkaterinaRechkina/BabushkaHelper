@@ -1,5 +1,4 @@
-// const { postForm } = document.forms;
-// const container = document.querySelector("#container");
+
 console.log('helllooow');
 
 
@@ -19,7 +18,7 @@ form.addEventListener('submit', async (event) => {
   console.log(bodyObj);
 
 
-  const response = await fetch('/registration', {//!адрес с action из формы\
+  const response = await fetch('/registration/granny', {//!адрес с action из формы\
     
     method: 'POST',
     credentials: 'include',

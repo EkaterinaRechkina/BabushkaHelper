@@ -28,15 +28,15 @@
 
 
 <div class="childForm">
-  <form name="form" id="formChild"  method="POST" class="needs-validation was-validated" novalidate="">
+  <form action="/registration/child" name="formChild" id="formChild"  method="POST" class="needs-validation was-validated" novalidate="">
     <div class="mb-3">
     <label for="usernameChild" class="form-label">Имя</label>
-    <input type="text" class="form-control" id="usernameChild" name="username" style="color:black">
+    <input type="text" class="form-control" id="usernameChild" name="usernameChild" style="color:black">
   </div>  
  
   <div class="mb-3">
     <label for="passwordChild" class="form-label">Пароль</label>
-    <input type="password" class="form-control" name="password" id="passwordChild" style="color:black">
+    <input type="password" class="form-control" name="passwordChild" id="passwordChild" style="color:black">
   </div>
   
    <div class="mb-3">
@@ -45,7 +45,7 @@
   </div>
  
   <button type="submit" class="btn btn-primary" style="color:black" >Зарегистрироваться</button>
-  <input type="button" class="btn btn-primary back" style="color:black" value="Назад"> </input>
+  {{!-- <input type="button" class="btn btn-primary back" style="color:black" value="Назад"> </input> --}}
 </form>
 
 </div>
