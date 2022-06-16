@@ -12,6 +12,7 @@ form.addEventListener('submit', async (event) => {
   console.log(granny_name, '===========12');
   const password = event.target.password.value;
   const bodyObj = { granny_name, password};
+
   console.log(bodyObj);
 
   const response = await fetch('/login', {//!адрес с action из формы\
@@ -26,7 +27,8 @@ form.addEventListener('submit', async (event) => {
   });
 console.log(response, 'response', response.ok)
   if(response.ok){
-    window.location = "/" //
+    window.location = "/" 
+  //  const result = await response.json()//с сервера 
   } else {
    console.log('что-то не так')
 
