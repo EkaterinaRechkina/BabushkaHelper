@@ -1,6 +1,6 @@
 
 console.log("helllooow CHILD");
-
+const errorChild = document.querySelector('#errorChild')
 const {formChild} = document
 console.log(formChild, 'formChild');
 
@@ -32,7 +32,7 @@ console.log(response, 'response', response.ok)
     window.location = "/" //
   } else {
    console.log('что-то не так')
-
+   errorChild.innerText = 'Указанной вами бабули нет в нашей матрице'
   }
   
 });
