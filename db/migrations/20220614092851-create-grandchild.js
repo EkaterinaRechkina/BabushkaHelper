@@ -11,12 +11,19 @@ module.exports = {
       granny_name: {
         type: Sequelize.STRING,
         unique: true,
+
       },
       password: {
         type: Sequelize.STRING
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        references: {
+          model: {
+              tableName: 'Grannies',
+          },
+      key: 'granny_name',
+      },
       },
       createdAt: {
         allowNull: false,

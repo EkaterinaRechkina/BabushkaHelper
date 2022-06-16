@@ -10,8 +10,7 @@ router.get('/', checkIsSession, (req, res) => {
   req.session.destroy();
   console.log('posle');
   res.clearCookie(process.env.COOKIE_NAME)
-  
-  res.redirect('/')
+  res.json('200')
 })
 
 

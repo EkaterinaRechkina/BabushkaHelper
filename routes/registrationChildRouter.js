@@ -22,22 +22,26 @@ router.post('/registration/child', async (req, res) => {
     
     const checkUser = await Grandchild.findOne({where: {granny_name}})  // проверяем в БД наличие повторений  почты
     //!хэширование пароля
-    
+    const newGranny = await Granny.findOne({where: {granny_name: name}, raw: true})
+    console.log('!!!!!!!!!!!!!!!!!!!!!!', newGranny.granny_name);
+    console.log('NAME!!!', name);
     //проверяем, есть ли в БД такой логин и пароль при регистрации
     if(!checkUser){
-      
-      const hashedPassword = await bcrypt.hash(password, saltRounds)
-      const newUser = await Grandchild.create({       //создаем нового юзера
-          granny_name, password: hashedPassword, name: name  //!вместо пароля передаем наш захэшированный пароль
-        })
+      if(newGranny.granny_name === name){
 
-        //* вот тут вот создается сессия
-          req.session.granny_name = newUser.granny_name // добавляем в сессию айди нового юзера
-          req.session.userId = newUser.id // добавляем в сессию айди нового юзера
+        const hashedPassword = await bcrypt.hash(password, saltRounds)
+        const newUser = await Grandchild.create({       //создаем нового юзера
+            granny_name, password: hashedPassword, name: name  //!вместо пароля передаем наш захэшированный пароль
+          })
+  
+          //* вот тут вот создается сессия
+            req.session.granny_name = newUser.granny_name // добавляем в сессию айди нового юзера
+            req.session.userId = newUser.id // добавляем в сессию айди нового юзера
+            
+            // console.log(reg.session);
           
-          // console.log(reg.session);
-        
-          res.sendStatus(200)
+            res.sendStatus(200)
+      }
     } else { return res.sendStatus(401)//ошибка при неправильном пароле или логине 
    
 
