@@ -18,12 +18,11 @@ router.get('/registration', (req, res) => {
 
 router.post('/registration/granny', async (req, res) => {
   const {granny_name,  password } = req.body      //достаем из инпута данные пользователя
-  console.log(req.body);
   try {
 
     const checkUser = await Granny.findOne({where: {granny_name}})  // проверяем в БД наличие повторений  почты
     //!хэширование пароля
-
+    console.log("checkUser", checkUser);
     //проверяем, есть ли в БД такой логин и почта при регистрации
     if(!checkUser){
 
@@ -32,17 +31,17 @@ router.post('/registration/granny', async (req, res) => {
           granny_name, password: hashedPassword   //!вместо пароля передаем наш захэшированный пароль
         })
 
-        //* вот тут вот создается сессия
-          req.session.granny_name = newUser.granny_name // добавляем в сессию айди нового юзера
-          req.session.userId = newUser.id // добавляем в сессию айди нового юзера
+      req.session.granny_name = newUser.granny_name
+      req.session.granny_id = newUser.id
+      console.log("ЧТО ЭТО??", newUser.id); // добавляем в сессию айди нового юзера
 
 
-          res.sendStatus(200)
-          
-    } else { return res.sendStatus(500)//подобрать подх ошибку
+      res.sendStatus(200)
 
+    } else { return res.sendStatus(500)
 
-  } } catch (error) {
+    }
+  } catch (error) {
     console.log(error)
     res.sendStatus(401)
   }
