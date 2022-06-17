@@ -9,7 +9,9 @@ const uploadForm = document.querySelector("#upload");
 const title = document.querySelector(".title");
 const instructions = document.querySelector(".instructions");
 const closeBtn = document.querySelector(".closeInstruction");
-const containerMain = document.getElementById('container-main')
+const containerMain = document.getElementById("container-main");
+const startBtn = document.querySelector(".start");
+const errorLogin = document.querySelector(".errorLogin");
 
 function recognize(file, lang, logger) {
   return Tesseract.recognize(file, lang, { logger }).then(
@@ -39,7 +41,7 @@ function setResult(text) {
   console.log("pre", pre);
 }
 
-document.querySelector(".start").addEventListener("click", () => {
+startBtn.addEventListener("click", () => {
   const file = document.getElementById("file").files[0];
   if (!file) return;
   const lang = document.getElementById("langs").value;
@@ -49,9 +51,6 @@ document.querySelector(".start").addEventListener("click", () => {
 });
 
 // Задаём стандартный язык произношения
-
-
-
 
 activate.onclick = function () {
   // При нажатии на кнопку
@@ -150,7 +149,11 @@ closeBtn.addEventListener("click", () => {
 });
 
 containerMain.addEventListener("click", () => {
-  if (!localStorage.getItem('user')) {
-    alert('Для начала зарегистрируйтесь!');
+  if (!localStorage.getItem("user")) {
+    myImg.disabled = true;
+    startBtn.disabled = true;
+    sound.disabled = true;
+    errorLogin.style.display = "block";
+    errorLogin.innerHTML = "Пожалуйста, войдите или зарегистриутейсь.";
   }
-})
+});
