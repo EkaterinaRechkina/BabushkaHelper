@@ -7,16 +7,20 @@
 {{#if granny_name}}
   <h1>Привет, <span class="greetingName">{{granny_name}}</span> </h1>
 {{/if}}
+{{#if name}}
+  <h5>Во вкладке "все посты" картинки твоей бабушки</h5>
+{{/if}}
+{{#unless name}}
 <div class="errorLogin"></div>
 <div id="container-main" class="container mx-auto">
 
-  <div class="container-instruction">
-    <h2 class="title">Инструкция</h2>
+    <div class="container-instruction">
+      <h2 class="title">Инструкция</h2>
 
-    <div class="instructions">
-      <p>
-        Дорогая бабушка!</p>
-      <p>Ниже Инструкция к приложению</p>
+      <div class="instructions">
+        <p>
+          Дорогая бабушка!</p>
+        <p>Ниже Инструкция к приложению</p>
 
       <ul>
         <li>Для начала работы зайди или зарегистрируйся на сайте</li>
@@ -25,47 +29,58 @@
         <li>Нажми на кнопку - Озвучить</li>
       </ul>
 
-      <input
-        type="button"
-        value="Скрыть"
-        class="btn btn-secondary closeInstruction"
-      />
+        <input
+          type="button"
+          value="Скрыть"
+          class="btn btn-secondary closeInstruction"
+        />
+      </div>
     </div>
+
+    <br />
   </div>
 <button id="presentButton" class="present" name="button">🎁</button>
 <div id="presentVideo"><iframe width="560" height="315" src="https://www.youtube.com/embed/V5LcDFqO5pA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
   <br />
 
-  <img src="" id="img1" class="image" />
-  <br />
-  <br />
-  <select name="langs" id="langs">
-    <option value="rus" selected>Русский</option>
-    {{! <option value="eng">English</option> }}
-  </select>
-  <form
-    id="upload"
-    name="upload"
-    action=""
-    method="post"
-    encType="multipart/form-data"
-  >
-    <input type="file" id="file" name="myImg" class="img" />
-    {{! <button type="submit" >test</button> }}
-    <div id="log" style="min-height: 200px; border: 1px solid #eee" class="log">
-      <pre class="pre"></pre>
-    </div>
+    <img src="" id="img1" class="image" />
     <br />
-    <button type="submit" class="btn btn-success start" id="activate">Прочесть
-      текст из картинки</button>
-  </form>
+    <br />
+    <select name="langs" id="langs">
+      <option value="rus" selected>Русский</option>
+      {{! <option value="eng">English</option> }}
+    </select>
+    <form
+      id="upload"
+      name="upload"
+      action=""
+      method="post"
+      encType="multipart/form-data"
+    >
+      <input type="file" id="file" name="myImg" class="img" />
+      {{! <button type="submit" >test</button> }}
+      <div
+        id="log"
+        style="min-height: 200px; border: 1px solid #eee"
+        class="log"
+      >
+        <pre class="pre"></pre>
+      </div>
+      <br />
+      <button type="submit" class="btn btn-success start" id="activate">Прочесть
+        текст из картинки</button>
+    </form>
 
-  <br />
-  <div class="main">
+    <br />
+    <div class="main">
 
-    {{! <p>Выберите язык произношения<select id="lang" class="form-select">
+      {{! <p>Выберите язык произношения<select id="lang" class="form-select">
     </select> }}
-    <button type="button" id="sound" class="btn btn-success">Озвучить</button>
-  </div>
+      <button type="button" id="sound" class="btn btn-success">Озвучить</button>
+    </div>
 
-</div>
+  </div>
+{{/unless}}
+{{!-- {{#unless}}
+<h5>Отстой</h5>
+{{/unless}} --}}
