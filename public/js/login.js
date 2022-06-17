@@ -25,10 +25,13 @@ form.addEventListener("submit", async (event) => {
     },
     body: JSON.stringify(bodyObj),
   });
-console.log(response, 'response', response.ok)
+    console.log(response, 'response', response.ok)
   if(response.ok){
-    window.location = "/" 
-  //  const result = await response.json()//с сервера 
+
+    localStorage.setItem('user', 'user');
+
+    window.location = "/"
+  //  const result = await response.json()//с сервера
   } else {
     console.log("что-то не так");
     errorUser.innerText = "Такого пользователя нет.Зарегистрируйтесь!";
