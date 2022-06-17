@@ -35,11 +35,8 @@ function updateProgress(data) {
 function setResult(text) {
   log.innerHTML = "";
   text = text.replace(/\n\s*\n/g, "\n");
-  // const pre = document.createElement("pre");
   pre.innerHTML = text;
-  //   log.appendChild(pre);
   log.append(pre.innerHTML);
-  console.log("pre", pre);
 }
 
 startBtn.addEventListener("click", () => {
@@ -48,7 +45,6 @@ startBtn.addEventListener("click", () => {
   const lang = document.getElementById("langs").value;
 
   recognize(file, lang, updateProgress).then(setResult);
-  console.log(log);
 });
 
 // Задаём стандартный язык произношения
@@ -70,7 +66,6 @@ function speak() {
   if (!ourvoice.length) {
     // Если равно нулю, то...
     voices = speech.getVoices(); // Получаем все языки
-    console.log("length", voices.length);
   }
 
   for (let i = 0; i < voices.length; i++) {
@@ -81,9 +76,7 @@ function speak() {
   }
 
   const readme = new SpeechSynthesisUtterance(pre.innerHTML); // вводим текст
-  console.log("readme", readme);
   readme.voice = voice; // Задаём язык произношения
-  console.log(readme.voice);
 
   speech.speak(readme); // Произносим
   window.speechSynthesis.resume();
@@ -121,11 +114,8 @@ uploadForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const btn = event.target;
   const img = event.target.myImg.value;
-  console.log("img", img);
   const title = img.slice(12);
-  console.log(title);
   const imgPath = `/img/${title}`;
-  console.log(imgPath);
   const response = await fetch("/upload", {
     method: "POST",
     headers: {
@@ -134,9 +124,7 @@ uploadForm.addEventListener("submit", async (event) => {
     body: JSON.stringify({ title, imgPath }),
   });
 
-  console.log("response", response);
   const res = await response.json();
-  console.log("res", res);
 });
 
 title.addEventListener("click", () => {
