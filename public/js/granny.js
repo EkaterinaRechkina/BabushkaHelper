@@ -9,6 +9,9 @@ const uploadForm = document.querySelector("#upload");
 const title = document.querySelector(".title");
 const instructions = document.querySelector(".instructions");
 const closeBtn = document.querySelector(".closeInstruction");
+const presentButton = document.querySelector('#presentButton')
+const presentVideo = document.querySelector('#presentVideo')
+
 const containerMain = document.getElementById("container-main");
 const startBtn = document.querySelector(".start");
 const errorLogin = document.querySelector(".errorLogin");
@@ -148,12 +151,20 @@ closeBtn.addEventListener("click", () => {
   instructions.style.cssText = "display: none;";
 });
 
+console.log(presentButton, presentVideo);
+
+
+presentVideo.style.display = 'none'
+presentButton.addEventListener("click",      function() {
+   presentVideo.style.display = 'block'
+    
+  });
 containerMain.addEventListener("click", () => {
   if (!localStorage.getItem("user")) {
     myImg.disabled = true;
     startBtn.disabled = true;
     sound.disabled = true;
     errorLogin.style.display = "block";
-    errorLogin.innerHTML = "Пожалуйста, войдите или зарегистриутейсь.";
+    errorLogin.innerHTML = "Пожалуйста, войдите или зарегистрируйтесь.";
   }
 });
