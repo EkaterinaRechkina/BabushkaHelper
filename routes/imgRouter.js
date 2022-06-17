@@ -5,7 +5,7 @@ const path = require("path");
 const router = Router();
 
 router.post("/", async (req, res) => {
-  const grannyId = req.session.user_id;
+  const grannyId = req.session.granny_id;
   // console.log("test", grannyId);
   const { title, imgPath } = req.body;
   const newImg = await Library.create({
