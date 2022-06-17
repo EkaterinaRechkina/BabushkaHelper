@@ -1,12 +1,23 @@
 const { Router } = require("express");
 const { Library } = require("../db/models");
+const { Granny } = require("../db/models");
+// const path = require("path");
 const router = Router();
 
-router.get("/", async (req, res) => {
+
+router.get('/', async (req, res) => {
+
   try {
+    const grannyName = req.session.name
+
+    const granny = await Granny.findOne({
+      where: { granny_name: grannyName }
+    });
+
+
     const posts = await Library.findAll({
-      // сортировка всех картинок
-      order: [["createdAt", "DESC"]],
+      where: { granny_id: granny.id },
+      order: [['createdAt', 'DESC']],
     });
 
     res.render("allPosts", { posts }); // рендрим индекс hbs и передаем в нее параметры
@@ -18,10 +29,19 @@ router.get("/", async (req, res) => {
 router
   .route("/") // на этом роуте два метода
   .post(async (req, res) => {
-    const { title, image } = req.body;
+    const { title, image } = req.body
+
     try {
-      const newPost = await Library.create({ title, image }); // данные вносятся в таблицу и возвращают назад значение нового поста
-      res.json(newPost);
+      const grannyName = req.session.name
+
+      const granny = await Granny.findOne({
+        where: { granny_name: grannyName },
+      });
+
+      const granny_id = granny.id
+
+      const newPost = await Library.create({ title, image, granny_id }) // данные вносятся в таблицу и возвращают назад значение нового поста
+      res.json(newPost)
     } catch (error) {
       console.log(err);
       res.end();

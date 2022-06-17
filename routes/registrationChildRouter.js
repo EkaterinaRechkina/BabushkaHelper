@@ -31,25 +31,23 @@ router.post("/registration/child", async (req, res) => {
     // console.log('!!!!!!!!!!!!!!!!!!!!!!', newGranny.granny_name);
     // console.log('NAME!!!', name);
     //проверяем, есть ли в БД такой логин и пароль при регистрации
-    if (!checkUser) {
-      if (newGranny.granny_name === name) {
-        const hashedPassword = await bcrypt.hash(password, saltRounds);
-        const newUser = await Grandchild.create({
-          //создаем нового юзера
-          granny_name,
-          password: hashedPassword,
-          name: name, //!вместо пароля передаем наш захэшированный пароль
-        });
+    if(!checkUser){
+      if(newGranny.granny_name === name){
 
-        //* вот тут вот создается сессия
-        req.session.granny_name = newUser.granny_name; // добавляем в сессию айди нового юзера
-        req.session.userId = newUser.id;
-        req.session.name = newUser.name;
-        // добавляем в сессию айди нового юзера
+        const hashedPassword = await bcrypt.hash(password, saltRounds)
+        const newUser = await Grandchild.create({       //создаем нового юзера
+            granny_name,  name: name, password: hashedPassword, //!вместо пароля передаем наш захэшированный пароль
+          })
 
-        console.log(req.session);
+          //* вот тут вот создается сессия
+            req.session.granny_name = newUser.granny_name // добавляем в сессию айди нового юзера
+            req.session.userId = newUser.id
+            req.session.name = newUser.name
+            // добавляем в сессию айди нового юзера
 
-        res.sendStatus(200);
+            console.log(req.session);
+
+            res.sendStatus(200)
       }
     } else {
       return res.sendStatus(401); //ошибка при неправильном пароле или логине
