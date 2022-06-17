@@ -38,7 +38,6 @@ router.post("/", async (req, res) => {
       return res.sendStatus(404);
     }
 
-
     const isValidPass = await bcrypt.compare(password, user.password); //расхэшируем пароль
 
     //затем проверяем пароль
@@ -61,10 +60,5 @@ router.post("/", async (req, res) => {
     res.sendStatus(404);
   }
 });
-
-// router.post('/', (req, res) => {
-
-//   res.render('./grannyMain')
-// })
 
 module.exports = router;

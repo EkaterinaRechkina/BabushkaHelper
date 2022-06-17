@@ -1,41 +1,43 @@
-'use strict';
+"use strict";
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Grandchildren', {
+    await queryInterface.createTable("Grandchildren", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       granny_name: {
         type: Sequelize.STRING,
         unique: true,
-
+        allowNull: false,
       },
       password: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       name: {
         type: Sequelize.STRING,
+        allowNull: false,
         references: {
           model: {
-              tableName: 'Grannies',
+            tableName: "Grannies",
           },
-      key: 'granny_name',
-      },
+          key: "granny_name",
+        },
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Grandchildren');
-  }
+    await queryInterface.dropTable("Grandchildren");
+  },
 };
