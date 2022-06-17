@@ -31,9 +31,9 @@ router.post('/registration/child', async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(password, saltRounds)
         const newUser = await Grandchild.create({       //создаем нового юзера
-            granny_name, password: hashedPassword, name: name  //!вместо пароля передаем наш захэшированный пароль
+            granny_name,  name: name, password: hashedPassword, //!вместо пароля передаем наш захэшированный пароль
           })
-
+        
           //* вот тут вот создается сессия
             req.session.granny_name = newUser.granny_name // добавляем в сессию айди нового юзера
             req.session.userId = newUser.id

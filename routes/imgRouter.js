@@ -21,7 +21,7 @@ const router = Router();
 // const upload = multer({ storage });
 
 router.post("/", async (req, res) => {
-  const grannyId = req.session.granny_id;
+  const grannyId = req.session.user_id;
   // console.log("test", grannyId);
   const { title, imgPath } = req.body;
   const newImg = await Library.create({

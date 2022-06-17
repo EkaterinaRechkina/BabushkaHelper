@@ -52,6 +52,7 @@ router.post("/", async (req, res) => {
       req.session.granny_name = user.granny_name;
       req.session.granny_id = user.id;
       req.session.name = user.name
+      console.log("Имя!", req.session.name);
       res.json(user);
       // добавляем в сессию айди нового юзера
       // res.redirect('/')
