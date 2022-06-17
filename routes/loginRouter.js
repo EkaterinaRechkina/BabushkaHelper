@@ -30,7 +30,6 @@ router.post("/", async (req, res) => {
         granny_name,
       },
     });
-    console.log(newChild);
     const user = granny || newChild;
 
     if (!user) {
@@ -38,6 +37,7 @@ router.post("/", async (req, res) => {
       console.log("===================");
       return res.sendStatus(404);
     }
+
 
     const isValidPass = await bcrypt.compare(password, user.password); //расхэшируем пароль
 
@@ -51,6 +51,7 @@ router.post("/", async (req, res) => {
     } else {
       req.session.granny_name = user.granny_name;
       req.session.granny_id = user.id;
+      req.session.name = user.name
       res.json(user);
       // добавляем в сессию айди нового юзера
       // res.redirect('/')

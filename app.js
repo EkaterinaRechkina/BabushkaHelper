@@ -55,10 +55,16 @@ app.use(session(sessionConfig));
 //!мидлвара, которая применятся к каждому обработчику, проверка-есть ли сессия
 //!тут сохраняем данные из сессии для использования в наших ХБСках
 app.use((req, res, next) => {
-  if (req.session.granny_name) {
+  if (req.session.name) {
     res.locals.granny_name = req.session.granny_name;
-    res.locals.userId = req.session.id; // добавляем в сессию айди нового юзера
+    res.locals.userId = req.session.id;
+    res.locals.name = req.session.name;
+  } else if (req.session.granny_name) {
+    res.locals.granny_name = req.session.granny_name;
+    res.locals.userId = req.session.id;
   }
+  console.log("имя внучки", req.session.name);
+  console.log(req.session.granny_name);
   next();
 });
 
