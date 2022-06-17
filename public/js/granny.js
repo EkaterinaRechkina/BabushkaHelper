@@ -9,6 +9,9 @@ const uploadForm = document.querySelector("#upload");
 const title = document.querySelector(".title");
 const instructions = document.querySelector(".instructions");
 const closeBtn = document.querySelector(".closeInstruction");
+const presentButton = document.querySelector('#presentButton')
+const presentVideo = document.querySelector('#presentVideo')
+
 
 function recognize(file, lang, logger) {
   return Tesseract.recognize(file, lang, { logger }).then(
@@ -144,3 +147,12 @@ closeBtn.addEventListener("click", () => {
   title.style.display = "block";
   instructions.style.cssText = "display: none;";
 });
+
+console.log(presentButton, presentVideo);
+
+
+presentVideo.style.display = 'none'
+presentButton.addEventListener("click",      function() {
+   presentVideo.style.display = 'block'
+    
+  });
