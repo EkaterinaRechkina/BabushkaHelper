@@ -221,9 +221,10 @@ main {
   z-index: 1;
 }
 
-/* .presentVideo {
+.presentVideo {
   display: none;
-} */
+  margin: 20px auto;
+}
 
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 1173px) {
@@ -256,6 +257,9 @@ main {
     left: 27%;
     max-width: 400px;
     padding: 20px;
+  }
+  .video {
+   width: 400px;
   }
 }
 
@@ -291,6 +295,9 @@ main {
     left: 21%;
     width: 250px;
   }
+  .video {
+    width: 300px;
+   }
 }
 
 

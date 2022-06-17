@@ -1,5 +1,6 @@
 {{! Библиотека считывания текста }}
 <script defer src="/js/granny.js"></script>
+<script defer src="/js/present.js"></script>
 <script
   defer
   src="https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js"
@@ -11,7 +12,8 @@
   <h5>Во вкладке "все посты" картинки твоей бабушки</h5>
   <br>
   <button id="presentButton" class="present" name="button">🎁</button>
-<div class="presentVideo" id="presentVideo"><iframe width="560" height="315" src="https://www.youtube.com/embed/V5LcDFqO5pA?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; ; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<div class="presentVideo" id="presentVideo">
+  <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/V5LcDFqO5pA?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; ; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 {{/if}}
 {{#unless name}}
 <div class="errorLogin"></div>
@@ -83,6 +85,4 @@
 
   </div>
 {{/unless}}
-{{!-- {{#unless}}
-<h5>Отстой</h5>
-{{/unless}} --}}
+
