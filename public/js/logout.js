@@ -2,9 +2,7 @@ const logoutBtn = document.getElementById('logout')
 
 logoutBtn.addEventListener('click', async () => {
 
-
-
-  const response = await fetch('/logout',
+const response = await fetch('/logout',
     {
       method: "GET",
       credentials: "include",

@@ -11,5 +11,7 @@
 - SEQUELIZE
 - Tesseract
 - SpeechSynthesisUtterance
+- Cookie
+- Sessions
 
 ## Превью
