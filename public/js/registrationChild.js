@@ -1,7 +1,6 @@
 console.log("helllooow CHILD");
 const errorChild = document.querySelector("#errorChild");
 const { formChild } = document;
-console.log(formChild, "formChild");
 
 formChild.addEventListener("submit", async (event) => {
   // * Если event.preventDefault() - то форма не отправляется,
@@ -13,7 +12,6 @@ formChild.addEventListener("submit", async (event) => {
   const name = event.target.nickNameChild.value;
 
   const bodyObj = { granny_name, password, name };
-  console.log(bodyObj, "JS+++++++++++++++++++++");
 
   const action = event.target.action; //из формы action
   const response = await fetch(action, {
@@ -26,11 +24,11 @@ formChild.addEventListener("submit", async (event) => {
     },
     body: JSON.stringify(bodyObj),
   });
-  console.log(response, "response", response.ok);
+
   if (response.ok) {
     localStorage.setItem("user", "user");
 
-    window.location = "/"; //
+    window.location = "/";
   } else {
     console.log("что-то не так");
     errorChild.innerText =

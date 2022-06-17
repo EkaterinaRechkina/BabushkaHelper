@@ -61,9 +61,4 @@ router.post("/", async (req, res) => {
   }
 });
 
-// router.post('/', (req, res) => {
-
-//   res.render('./grannyMain')
-// })
-
 module.exports = router;

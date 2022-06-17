@@ -1,6 +1,6 @@
 const form = document.querySelector("form");
 const errorGranny = document.querySelector(".errorGranny");
-console.log(form, "form");
+
 form.addEventListener("submit", async (event) => {
   // * Если event.preventDefault() - то форма не отправляется,
   // * стр. не перезагружается, запись в БД не создаётся
@@ -8,9 +8,7 @@ form.addEventListener("submit", async (event) => {
 
   const granny_name = event.target.username.value; //по назв инпута
   const password = event.target.password.value;
-  // console.log('значения', username, password);
   const bodyObj = { granny_name, password };
-  console.log(bodyObj);
 
   const response = await fetch("/registration/granny", {
     //!адрес с action из формы\
@@ -25,9 +23,8 @@ form.addEventListener("submit", async (event) => {
   if (response.ok) {
     localStorage.setItem("user", "user");
 
-    window.location = "/"; //
+    window.location = "/";
   } else {
-    //  console.log('что-то не так')
     errorGranny.innerText = "Пользователь с таким именем уже сушествует";
   }
 });
