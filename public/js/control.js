@@ -5,7 +5,7 @@ const API_URL = "/allPosts";
 const editEntryForm = document.querySelector("#editEntryForm");
 
 const createCard = ({ title, id, image }) =>
-  `<div data-card class="col-3">
+  `<div data-card>
 <div class="card">
 <img src=${image} class="card-img-top" alt={{title}} />
 <div class="card-body">
