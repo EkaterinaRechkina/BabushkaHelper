@@ -47,7 +47,7 @@ startBtn.addEventListener("click", () => {
   recognize(file, lang, updateProgress).then(setResult);
 });
 
-// Задаём стандартный язык произношения
+
 
 activate.onclick = function () {
   // При нажатии на кнопку

@@ -41,31 +41,7 @@ postForm?.addEventListener("submit", async (event) => {
   }
 });
 
-// editEntryForm?.addEventListener('submit', async (event) => {
-//   event.preventDefault();
-//   const response = await fetch(`/entries/${event.target.dataset.entryid}`, {
-//     method: 'PUT',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({
-//       title: event.target.title.value,
-//       body: event.target.body.value
-//     })
-//   });
 
-//   const responseJson = await response.json();
-
-//   if (!responseJson.isUpdateSuccessful) {
-//     const errorDiv = document.createElement('div');
-//     errorDiv.classList.add('error');
-//     errorDiv.innerText = responseJson.errorMessage;
-//     event.target.parentElement.append(errorDiv);
-//     return;
-//   }
-
-//   window.location = `/entries/${responseJson.entryID}`;
-// });
 
 console.log(editForm);
 
