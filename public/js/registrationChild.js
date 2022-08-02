@@ -3,8 +3,7 @@ const errorChild = document.querySelector("#errorChild");
 const { formChild } = document;
 
 formChild.addEventListener("submit", async (event) => {
-  // * Если event.preventDefault() - то форма не отправляется,
-  // * стр. не перезагружается, запись в БД не создаётся
+
   event.preventDefault();
 
   const granny_name = event.target.usernameChild.value; //по назв инпута
@@ -15,7 +14,6 @@ formChild.addEventListener("submit", async (event) => {
 
   const action = event.target.action; //из формы action
   const response = await fetch(action, {
-    //!адрес с action из формы\
 
     method: "POST",
     credentials: "include",
