@@ -2,8 +2,7 @@ const form = document.querySelector("form");
 const errorGranny = document.querySelector(".errorGranny");
 
 form.addEventListener("submit", async (event) => {
-  // * Если event.preventDefault() - то форма не отправляется,
-  // * стр. не перезагружается, запись в БД не создаётся
+ 
   event.preventDefault();
 
   const granny_name = event.target.username.value; //по назв инпута
